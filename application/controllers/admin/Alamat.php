@@ -23,6 +23,8 @@ class Alamat extends CI_Controller {
         //     redirect(base_url("getlogin"));
         // }			
        
+        $this->load->model('M_TentangPerusahaan');
+        $data['tentang'] = $this->M_TentangPerusahaan->get_pilihtentang();
         $this->load->model('M_Alamat');
         $data['alamat'] = $this->M_Alamat->get_alamat();
         $where = array('id_alamat' => $id_alamat);
@@ -33,10 +35,12 @@ class Alamat extends CI_Controller {
 	public function update(){
         $id_alamat = $this->input->post('id_alamat');
         $alamat = $this->input->post('alamat');
+        $id_tentang = $this->input->post('id_tentang');
         
 
         $data = array(
             'id_alamat' => $id_alamat,
+            'id_tentang' => $id_tentang,
             'alamat' => $alamat,
         );
 
@@ -50,7 +54,7 @@ class Alamat extends CI_Controller {
 
 		public function tambah_alamat()
 	{    $this->load->model('M_TentangPerusahaan');
-         $data['tentang'] = $this->M_TentangPerusahaan->get_tentang();
+         $data['tentang'] = $this->M_TentangPerusahaan->get_pilihtentang();
 		$this->load->view('admin/alamat_tambah',$data);
 		
     }

@@ -19,6 +19,17 @@
                                 <label for="kelas">Misi</label>
                                 <input type="text" class="form-control" id="misi" name="misi" required>
                             </div>
+
+                            <div class="form-row mb-4">
+                                <br>
+                                <small>Nama Perusahaan</small>
+                                <select name="id_tentang" id="id_tentang" class="form-control" required>
+                                <?php foreach ($tentang as $row) :?>
+                                        <option value="<?= $row->id_tentang;?>"><?=  $row->nama_perusahaan;?></option>
+                                    <?php endforeach;?>
+                                </select>
+                                
+                            </div>
                             
                             <div class="d-flex align-items-center flex-column row">
                                 <button type="submit" class="col-5 rounded btn btn-success text-white rounded-lg mt-3" onClick="alert('Misi ditambahkan')">Tambah</button>

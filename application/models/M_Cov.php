@@ -10,8 +10,14 @@ class M_Cov extends CI_Model {
     }
 
     public function get_cov(){
-        $query = $this->db->get('cov');
+        $this->db->select("*");
+        $this->db->from('cov');
+        $this->db->join('tentang', 'tentang.id_tentang = cov.id_tentang');
+        $query = $this->db->get();
         return $query->result();
+        
+            // $query = $this->db->get('cov');
+            // return $query->result();
     }
 
     public function input_data($data, $cov)

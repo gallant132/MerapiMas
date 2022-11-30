@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
-  <title>Login &mdash; Stisla</title>
+  <title>Login &mdash; Merapi Mas Nusantara</title>
 
   <!-- General CSS Files -->
   <?php $this->load->view("admin/partial/css.php") ?>
@@ -88,7 +88,7 @@
               </div>
             </div>
             <div class="mt-5 text-muted text-center">
-              Don't have an account? <a href="<?= base_url("admin/dashboard") ?>">Create One</a>
+              Don't have an account? <a href="<?= base_url("admin/tentang") ?>">Create One</a>
             </div>
             <div class="simple-footer">
               Copyright &copy; Merapi Mas Nusantara 2018

@@ -38,7 +38,7 @@
                             role="grid" aria-describedby="dataTable_info" style="width: 100%;">
                                     <thead>
                                         <tr><th rowspan="0" colspan="1">No</th>
-                                        <th rowspan="0" colspan="1">ID</th>
+                                        <!-- <th rowspan="0" colspan="1">ID</th> -->
                                             <th rowspan="1" colspan="1">Jabatan</th>
                                             <th rowspan="1" colspan="1">Action</th></tr>
                                     </thead>
@@ -48,7 +48,7 @@
                                             <?php foreach ($jabatan as $key): ?>
                                               <?php $no++?>
                                                 <td><?php echo $no; ?></td>
-                                                <td><?php echo $key->id_jabatan; ?></td>
+                                                <!-- <td><?php echo $key->id_jabatan; ?></td> -->
                                                 <td><?php echo $key->jabatan; ?></td>
                                                 <td>
                                                     <button class="btn btn-primary text-white mb-2"> <?php echo anchor('admin/jabatan/edit_jabatan/'.$key->id_jabatan,'<font color=white > Ubah </font>'); ?> </button>

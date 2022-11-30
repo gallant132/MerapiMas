@@ -10,7 +10,12 @@ class M_Visi extends CI_Model {
     }
 
     public function get_visi(){
-        $query = $this->db->get('visi');
+        $this->db->select("*");
+        $this->db->from('visi');
+        $this->db->join('tentang', 'tentang.id_tentang = visi.id_tentang');
+        $query = $this->db->get();
+        // $query = $this->db->get('visi');
+        //     return $query->result();
         return $query->result();
     }
 

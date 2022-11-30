@@ -20,17 +20,18 @@
                                 <input type="text" class="form-control" id="alamat" name="alamat" required>
                             </div>
 
-                            <div class="form-group row">
-                                <label class="col-sm-2 col-form-label">ID Tentnag</label>
-                                <div class="col-sm-10">
-                                    <select class="bootstrap-select" name="id_tentang" id="id_tentang"  data-width="100%" data-live-search="true" multiple required>
-                                        <?php foreach ($tentang as $row) :?>
-                                            <option value="<?= $row->id_tentang;?>"><?=  $row->nama_perusahaan;?></option>
-                                        <?php endforeach;?>
-                                    </select>
-                                </div>
-                            </div>
-                            
+                            <div class="form-row mb-4">
+							<br>
+							<small>Nama Perusahaan</small>
+							<select name="id_tentang" id="id_tentang" class="form-control" required>
+                            <?php foreach ($tentang as $row) :?>
+                                    <option value="<?= $row->id_tentang;?>"><?=  $row->nama_perusahaan;?></option>
+                                <?php endforeach;?>
+							</select>
+							
+						</div>
+                                
+                                
                             <div class="d-flex align-items-center flex-column row">
                                 <button type="submit" class="col-5 rounded btn btn-success text-white rounded-lg mt-3" onClick="alert('Alamat ditambahkan')">Tambah</button>
                                 <button class="col-5 btn btn-danger text-white rounded rounded-lg mt-3" onclick="window.location.href='/MerapiMas/admin/Alamat' ">Kembali</button>

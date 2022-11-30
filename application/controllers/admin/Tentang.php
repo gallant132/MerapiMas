@@ -14,52 +14,51 @@ class Tentang extends CI_Controller {
 	public function index()
 	{
         // $Qalamat = $this->M_TentangPerusahaan->get_array_list(id_tentang);
+        $perusahaan = $this->M_TentangPerusahaan->get_all();
 
-		$data['tentang'] = $this->M_TentangPerusahaan->get_tentang();
-        // $data['all']= array(
-        //     'alamat'=> $Qalamat,
-        //     'visi' => $id_alamat,
-        //     'misi'
-        // )
-        $this->load->view('admin/Tentang', $data);
+        foreach ($perusahaan as $key => $per) {
+            $per->alamat =  $this->M_TentangPerusahaan->get_table_by_id_tentang('alamat', $per->id_tentang);
+            $per->contact =  $this->M_TentangPerusahaan->get_table_by_id_tentang('contact', $per->id_tentang);
+            $per->visi =  $this->M_TentangPerusahaan->get_table_by_id_tentang('visi', $per->id_tentang);
+            $per->misi =  $this->M_TentangPerusahaan->get_table_by_id_tentang('misi', $per->id_tentang);
+            $per->legalitas =  $this->M_TentangPerusahaan->get_table_by_id_tentang('legalitas', $per->id_tentang);
+            $per->cov =  $this->M_TentangPerusahaan->get_table_by_id_tentang('cov', $per->id_tentang);
+        }
+
+        
+        $this->load->view('admin/Tentang', ['perusahaan' => $perusahaan]);
 		
 	}
 
-	public function edit_layanan($id_layanan){
-        // if($this->session->userdata('getlogin') != 'OK'){
-        //     redirect(base_url("getlogin"));
-        // }			
-       
-        $this->load->model('M_JenisLayanan');
-        $data['jenis_layanan'] = $this->M_JenisLayanan->get_jenis_layanan();
-        $where = array('id_layanan' => $id_layanan);
-        $data['layanan'] = $this->M_NamaLayanan->edit_data($where,'layanan')->result();
-        $this->load->view('admin/namalayanan_edit', $data);
+	public function edit_tentang($id_tentang){
 
-		// $this->load->model('M_kelas');
-        // $data['kelas'] = $this->M_kelas->get_kelas();
-        // $where = array('id_pendaftar' => $id_pendaftar);
-        // $data['pendaftar'] = $this->M_daftar->edit_data($where,'pendaftar')->result();
-        // $this->load->view('daftar_edit', $data);
+        $this->load->model('M_TentangPerusahaan');
+        $data['tentang'] = $this->M_TentangPerusahaan->get_tentang();
+        $where = array('id_tentang' => $id_tentang);
+        $data['tentang'] = $this->M_TentangPerusahaan->edit_data($where,'tentang')->result();
+        $this->load->view('admin/tentang_edit', $data);
+
+       
     }
 
 	public function update(){
-        $id_layanan = $this->input->post('id_layanan');
-        $Nama_Layanan = $this->input->post('Nama_layanan');
-        $id_jenislayanan = $this->input->post('id_jenislayanan');
+        $id_tentang = $this->input->post('id_tentang');
+        $nama_perusahaan = $this->input->post('nama_perusahaan');
+        $tentangperusahaan = $this->input->post('tentangperusahaan');
+        
 
         $data = array(
-            'id_layanan' => $id_layanan,
-            'Nama_layanan' => $Nama_Layanan,
-			'id_jenislayanan' => $id_jenislayanan,
+            'id_tentang' => $id_tentang,
+            'nama_perusahaan' => $nama_perusahaan,
+            'tentangperusahaan' => $tentangperusahaan,
         );
 
             $where = array(
-                'id_layanan' => $id_layanan
+                'id_tentang' => $id_tentang
             );
 
-            $this->M_NamaLayanan->update_data($where,$data,'layanan');
-            redirect('admin/NamaLayanan');
+            $this->M_TentangPerusahaan->update_data($where,$data,'tentang');
+            redirect('admin/Tentang');
         }
 	
 		public function tambah_tentang()
@@ -76,16 +75,15 @@ class Tentang extends CI_Controller {
         // $data['legalitas'] = $this->M_Legalitas->get_legalitas();
         // $this->load->model('M_Cov');
         // $data['cov'] = $this->M_Cov->get_cov();
-        
 
-        
-
-
-
+        // $this->load->model('M_Alamat');
+        // $data['alamat'] = $this->M_Alamat->get_alamat();
+		// // $this->load->view('admin/namalayanan_tambah', $data);
 		$this->load->view('admin/tentang_tambah');
 		
     }
-
+    
+    
 	 public function insert()
 	{
         
@@ -114,14 +112,14 @@ class Tentang extends CI_Controller {
         redirect('admin/Tentang');
 	}
 
-	Public function hapus_layanan($id_layanan){
+	Public function hapus_tentang($id_tentang){
         // if($this->session->userdata('getlogin') != 'OK'){
         //     redirect(base_url("getlogin"));
         // }	
         
-        $where = array ('id_layanan'=> $id_layanan);
-        $this->M_NamaLayanan->hapus_layanan($where,'layanan');
-        redirect('admin/NamaLayanan');
+        $where = array ('id_tentang'=> $id_tentang);
+        $this->M_TentangPerusahaan->hapus_tentang($where,'tentang');
+        redirect('admin/Tentang');
     } 
 
 }

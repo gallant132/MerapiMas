@@ -22,7 +22,8 @@ class Visi extends CI_Controller {
         // if($this->session->userdata('getlogin') != 'OK'){
         //     redirect(base_url("getlogin"));
         // }			
-       
+        $this->load->model('M_TentangPerusahaan');
+        $data['tentang'] = $this->M_TentangPerusahaan->get_pilihtentang();
         $this->load->model('M_Visi');
         $data['visi'] = $this->M_Visi->get_visi();
         $where = array('id_visi' => $id_visi);
@@ -33,10 +34,12 @@ class Visi extends CI_Controller {
 	public function update(){
         $id_visi = $this->input->post('id_visi');
         $visi = $this->input->post('visi');
+        $id_tentang = $this->input->post('id_tentang');
         
 
         $data = array(
             'id_visi' => $id_visi,
+            'id_visi' => $id_tentang,
             'visi' => $visi,
         );
 
@@ -49,15 +52,19 @@ class Visi extends CI_Controller {
         }
 
 		public function tambah_visi()
-	{
-		$this->load->view('admin/visi_tambah');
+	{   
+        $this->load->model('M_TentangPerusahaan');
+        $data['tentang'] = $this->M_TentangPerusahaan->get_pilihtentang();
+		$this->load->view('admin/visi_tambah',$data);
 		
     }
 
 	 public function insert()
-	{
+	{      
+        $id_tentang = $this->input->post('id_tentang');
 		$visi = $this->input->post('visi');
         $data = array(
+            'id_tentang' => $id_tentang,
             'visi' => $visi,
         );
         $this->M_Visi->input_data($data, 'visi');

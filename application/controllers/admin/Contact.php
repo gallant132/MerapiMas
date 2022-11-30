@@ -22,7 +22,8 @@ class Contact extends CI_Controller {
         // if($this->session->userdata('getlogin') != 'OK'){
         //     redirect(base_url("getlogin"));
         // }			
-       
+		$this->load->model('M_TentangPerusahaan');
+        $data['tentang'] = $this->M_TentangPerusahaan->get_pilihtentang();
 		$this->load->model('M_Contact');
         $data['contact'] = $this->M_Contact->get_contact();
         $where = array('id_contact' => $id_contact);
@@ -49,10 +50,12 @@ class Contact extends CI_Controller {
 			
 			$id_contact = $this->input->post('id_contact');
 			$contact = $this->input->post('contact');
+			$id_tentang = $this->input->post('id_tentang');
 		
 
 			$data = array(
 				'id_contact' => $id_contact,
+				'id_tentang' => $id_tentang,
 				'contact' => $contact,
 				
 				
@@ -73,9 +76,11 @@ class Contact extends CI_Controller {
 			$icon = $icon['file_name'];
 			$id_contact = $this->input->post('id_contact');
 			$contact = $this->input->post('contact');
+			$id_tentang = $this->input->post('id_tentang');
 
 			$data = array(
 				'id_contact' => $id_contact,
+				'id_tentang' => $id_tentang,
 				'contact' => $contact,
 				'icon' => $icon,
 			);
@@ -91,9 +96,9 @@ class Contact extends CI_Controller {
         }
 	
 		public function tambah_contact()
-	{
-		$this->load->model('M_Contact');
-        $data['contact'] = $this->M_Contact->get_contact();
+	{	
+		$this->load->model('M_TentangPerusahaan');
+         $data['tentang'] = $this->M_TentangPerusahaan->get_pilihtentang();
 		$this->load->view('admin/contact_tambah', $data);
 		
     }
@@ -123,10 +128,12 @@ class Contact extends CI_Controller {
 					$icon = $this->upload->data();
 					$icon = $icon['file_name'];
 					$id_contact = $this->input->post('id_contact');
-			$contact = $this->input->post('contact');
+					$id_tentang = $this->input->post('id_tentang');
+					$contact = $this->input->post('contact');
 
 					$data = array(
 						'id_contact' => $id_contact,
+						'id_tentang' => $id_tentang,
 						'contact' => $contact,
 						'icon' => $icon,
 					);
@@ -159,7 +166,7 @@ class Contact extends CI_Controller {
         // }	
         
         $where = array ('id_contact'=> $id_contact);
-        $this->M_Cov->hapus_contact($where,'contact');
+        $this->M_Contact->hapus_contact($where,'contact');
         redirect('admin/contact');
     } 
 

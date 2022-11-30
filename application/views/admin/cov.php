@@ -38,9 +38,10 @@
                             role="grid" aria-describedby="dataTable_info" style="width: 100%;">
                                     <thead>
                                         <tr><th rowspan="0" colspan="1">No</th>
-                                        <th rowspan="0" colspan="1">ID</th>
-                                            <th rowspan="1" colspan="1">Nama</th>
-                                            <th rowspan="1" colspan="1">Detail</th>
+                                        <!-- <th rowspan="0" colspan="1">ID Core of Value</th> -->
+                                        <th rowspan="1" colspan="1">Nama Perusahaan</th>
+                                            <th rowspan="1" colspan="1">Nama Core of Value</th>
+                                            <th rowspan="1" colspan="1">Detail Core of Value</th>
                                             <th rowspan="1" colspan="1">Icon</th>
                                             <th rowspan="1" colspan="1">Action</th></tr>
                                     </thead>
@@ -48,7 +49,8 @@
                                             <?php foreach ($cov as $key): ?>
                                               <?php $no++?>
                                                 <td><?php echo $no; ?></td>
-                                                <td><?php echo $key->id_cov; ?></td>
+                                                <!-- <td><?php echo $key->id_cov; ?></td> -->
+                                                <td><?php echo $key->nama_perusahaan; ?></td>
                                                 <td><?php echo $key->nama; ?></td>
                                                 <td><?php echo $key->detail; ?></td>
                                                 <td><img src="<?php echo base_url().'/upload/icon_cov/'. $key->icon ?>" width="100"></td>

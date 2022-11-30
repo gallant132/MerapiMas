@@ -22,7 +22,8 @@ class Cov extends CI_Controller {
         // if($this->session->userdata('getlogin') != 'OK'){
         //     redirect(base_url("getlogin"));
         // }			
-       
+		$this->load->model('M_TentangPerusahaan');
+        $data['tentang'] = $this->M_TentangPerusahaan->get_pilihtentang();
 		$this->load->model('M_Cov');
         $data['cov'] = $this->M_Cov->get_cov();
         $where = array('id_cov' => $id_cov);
@@ -50,9 +51,11 @@ class Cov extends CI_Controller {
 			$id_cov = $this->input->post('id_cov');
 			$nama = $this->input->post('nama');
 			$detail = $this->input->post('detail');
+			$id_tentang = $this->input->post('id_tentang');
 
 			$data = array(
 				'id_cov' => $id_cov,
+				'id_tentang' => $id_tentang,
 				'nama' => $nama,
 				'detail' => $detail,
 				
@@ -74,9 +77,11 @@ class Cov extends CI_Controller {
 			$id_cov = $this->input->post('id_cov');
 			$nama = $this->input->post('nama');
 			$detail = $this->input->post('detail');
+			$id_tentang = $this->input->post('id_tentang');
 
 			$data = array(
 				'id_cov' => $id_cov,
+				'id_tentang' => $id_tentang,
 				'nama' => $nama,
 				'detail' => $detail,
 				'icon' => $icon,
@@ -94,8 +99,8 @@ class Cov extends CI_Controller {
 	
 		public function tambah_cov()
 	{
-		$this->load->model('M_Cov');
-        $data['cov'] = $this->M_Cov->get_cov();
+		$this->load->model('M_TentangPerusahaan');
+         $data['tentang'] = $this->M_TentangPerusahaan->get_pilihtentang();
 		$this->load->view('admin/cov_tambah', $data);
 		
     }
@@ -127,9 +132,11 @@ class Cov extends CI_Controller {
 					$id_cov = $this->input->post('id_cov');
 					$nama = $this->input->post('nama');
 					$detail = $this->input->post('detail');
+					$id_tentang = $this->input->post('id_tentang');
 
 					$data = array(
 						'id_cov' => $id_cov,
+						'id_tentang' => $id_tentang,
 						'nama' => $nama,
 						'detail' => $detail,
 						'icon' => $icon,

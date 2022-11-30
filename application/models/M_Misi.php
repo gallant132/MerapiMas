@@ -10,8 +10,13 @@ class M_Misi extends CI_Model {
     }
 
     public function get_misi(){
-        $query = $this->db->get('misi');
-        return $query->result();
+        $this->db->select("*");
+        $this->db->from('misi');
+        $this->db->join('tentang', 'tentang.id_tentang = misi.id_tentang');
+        $query = $this->db->get();
+        // return $query->result();
+        // $query = $this->db->get('misi');
+            return $query->result();
     }
 
     public function input_data($data, $misi)

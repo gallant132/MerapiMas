@@ -12,14 +12,14 @@
 			<div class="row">
 				<div class="col-lg-6">
 					<!-- Default form register -->
-                    <?php foreach($misi as $key){ ?>
-					<form class="text-center border border-light p-5" method="post" action="<?php echo base_url() . 'admin/misi/update'; ?>">
-						<p class="h4 mb-4">Edit Misi</p>
+                    <?php foreach($tentang as $key){ ?>
+					<form class="text-center border border-light p-5" method="post" action="<?php echo base_url() . 'admin/tentang/update'; ?>">
+						<p class="h4 mb-4">Edit Tentang Perusahaan</p>
                         <div class="form-row mb-4">
 							<br>
-							<small>Id Misi</small>
+							<small>Id Tentang Perusahaan</small>
 							<input type="text" class="form-control 
-                            form-control-line form-user-input" name="id_misi" id="id_misi" required readonly value="<?php echo $key->id_misi ?>">
+                            form-control-line form-user-input" name="id_tentang" id="id_tentang" required readonly value="<?php echo $key->id_tentang ?>">
 							<br><br>
 							
 						</div>
@@ -27,19 +27,17 @@
 						<div class="form-row mb-4">
 							<br>
 							<small>Nama Perusahaan</small>
-							<select name="id_tentang" id="id_tentang" class="form-control" required>
-								<?php foreach($tentang as $jb) : ?>
-									<option value="<?= $jb->id_tentang ?>" <?= $jb->id_tentang === $key->id_tentang ? 'selected' : '' ?>><?= $jb->nama_perusahaan ?></option>
-								<?php endforeach; ?>
-							</select>
+							<input type="text" placeholder="Inputkan Nama Lengkap Anda" class="form-control
+							form-control-line form-user-input" name="nama_perusahaan" id="nama_perusahaan" required value="<?php echo $key->nama_perusahaan ?>">
+							<br><br>
 							
 						</div>
-
-						<div class="form-row mb-4">
+				
+                        <div class="form-row mb-4">
 							<br>
-							<small>Misi</small>
+							<small>Tentang Perusahaan</small>
 							<input type="text" placeholder="Inputkan Nama Lengkap Anda" class="form-control
-							form-control-line form-user-input" name="misi" id="misi" required value="<?php echo $key->misi ?>">
+							form-control-line form-user-input" name="tentangperusahaan" id="tentangperusahaan" required value="<?php echo $key->tentangperusahaan ?>">
 							<br><br>
 							
 						</div>
@@ -55,7 +53,7 @@
 						<hr>
 
 						<!-- Terms of service -->
-						<? redirect(base_url("admin/misi"))?>
+						<? redirect(base_url("admin/jenislayanan"))?>
 					</form>
                     
                  <?php } ?>

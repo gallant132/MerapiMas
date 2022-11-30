@@ -22,7 +22,8 @@ class Legalitas extends CI_Controller {
         // if($this->session->userdata('getlogin') != 'OK'){
         //     redirect(base_url("getlogin"));
         // }			
-       
+        $this->load->model('M_TentangPerusahaan');
+        $data['tentang'] = $this->M_TentangPerusahaan->get_pilihtentang();
         $this->load->model('M_Legalitas');
         $data['legalitas'] = $this->M_Legalitas->get_legalitas();
         $where = array('id_legalitas' => $id_legalitas);
@@ -32,12 +33,14 @@ class Legalitas extends CI_Controller {
 
 	public function update(){
         $id_legalitas = $this->input->post('id_legalitas');
+        $id_tentang = $this->input->post('id_tentang');
         $legalitas = $this->input->post('legalitas');
 		$Keterangan = $this->input->post('Keterangan');
         
 
         $data = array(
             'id_legalitas' => $id_legalitas,
+            'id_tentang' => $id_tentang,
             'legalitas' => $legalitas,
 			'Keterangan' => $Keterangan,
         );
@@ -51,16 +54,20 @@ class Legalitas extends CI_Controller {
         }
 
 		public function tambah_legalitas()
-	{
-		$this->load->view('admin/legalitas_tambah');
+	{   
+        $this->load->model('M_TentangPerusahaan');
+        $data['tentang'] = $this->M_TentangPerusahaan->get_pilihtentang();
+		$this->load->view('admin/legalitas_tambah',$data);
 		
     }
 
 	 public function insert()
-	{
+	{   
+        $id_tentang = $this->input->post('id_tentang');
 		$legalitas = $this->input->post('legalitas');
 		$Keterangan = $this->input->post('Keterangan');
         $data = array(
+            'id_tentang' => $id_tentang,
             'legalitas' => $legalitas,
 			'Keterangan' => $Keterangan,
         );

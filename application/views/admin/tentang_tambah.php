@@ -36,17 +36,18 @@
                                 <label class="col-sm-2 col-form-label">Alamat</label>
                                 <div class="col-sm-10">
                                 <?php foreach ($alamat as $row) :?>
-                                    <input type="checkbox" id="id_alamat[]" name="id_alamat[]"  multiple value="<?= $row->id_alamat; ?>"><?= $row->alamat; ?><br>
+                                    <input type="checkbox" id="id_alamat[]" name="id_alamat[]"  value="<?= $row->id_alamat; ?>"><?=  $row->alamat; ?><br>
                                 <?php endforeach;?>
                                 </div>
                             </div>
+
 
                             <div class="form-group row">
                                 <label class="col-sm-2 col-form-label">Contact</label>
                                 <div class="col-sm-10">
                                     <select class="bootstrap-select" name="id_contact" id="id_contact"  data-width="100%" data-live-search="true" multiple required>
-                                        <?php foreach ($contact as $row) :?>
-                                            <option value="<?= $row->id_contact;?>"><?=  $row->contact;?></option>
+                                        <?php foreach ($contact as $ct) :?>
+                                            <option value="<?= $ct->id_contact;?>"><?=  $ct->contact;?></option>
                                         <?php endforeach;?>
                                     </select>
                                 </div>
@@ -103,8 +104,8 @@
 						</div>
                             
                             <div class="d-flex align-items-center flex-column row">
-                                <button type="submit" class="col-5 rounded btn btn-success text-white rounded-lg mt-3" onClick="alert('Layanan Ditambahkan')">Tambah</button>
-                                <button class="col-5 btn btn-danger text-white rounded rounded-lg mt-3" onclick="window.location.href='/MerapiMas/admin/NamaLayanan' ">Kembali</button>
+                                <button type="submit" class="col-5 rounded btn btn-success text-white rounded-lg mt-3" onClick="alert('Tentang Perusahaan Ditambahkan')">Tambah</button>
+                                <button class="col-5 btn btn-danger text-white rounded rounded-lg mt-3" onclick="window.location.href='/MerapiMas/admin/Tentang' ">Kembali</button>
                             </div>
                         </form>
                     </div>

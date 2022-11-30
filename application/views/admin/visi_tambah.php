@@ -15,9 +15,22 @@
                     <h1 class="text-center pt-3" style="Margin-top:100px">Tambah Visi</h1>
                     <div class="d-flex align-items-center justify-content-center container row m-auto" style="height: 250px">
                         <form class="col-6" action="<?php echo base_url() . 'admin/Visi/insert'; ?>" method="post">
+                        
+                            
                             <div class="form-group">
                                 <label for="kelas">Visi</label>
                                 <input type="text" class="form-control" id="visi" name="visi" required>
+                            </div>
+                            
+                            <div class="form-row mb-4">
+                                <br>
+                                <small>Nama Perusahaan</small>
+                                <select name="id_tentang" id="id_tentang" class="form-control" required>
+                                <?php foreach ($tentang as $row) :?>
+                                        <option value="<?= $row->id_tentang;?>"><?=  $row->nama_perusahaan;?></option>
+                                    <?php endforeach;?>
+                                </select>
+                                
                             </div>
                             
                             <div class="d-flex align-items-center flex-column row">

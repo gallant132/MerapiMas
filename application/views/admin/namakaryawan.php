@@ -38,7 +38,7 @@
                             role="grid" aria-describedby="dataTable_info" style="width: 100%;">
                                     <thead>
                                         <tr><th rowspan="0" colspan="1">No</th>
-                                        <th rowspan="0" colspan="1">ID</th>
+                                        <!-- <th rowspan="0" colspan="1">ID</th> -->
                                             <th rowspan="1" colspan="1">Nama</th>
                                             <th rowspan="1" colspan="1">Jabatan</th>
                                             <th rowspan="1" colspan="1">Foto</th>
@@ -49,7 +49,7 @@
                                             <?php foreach ($karyawan as $key): ?>
                                               <?php $no++?>
                                                 <td><?php echo $no; ?></td>
-                                                <td><?php echo $key->id_karyawan; ?></td>
+                                                <!-- <td><?php echo $key->id_karyawan; ?></td> -->
                                                 <td><?php echo $key->nama_karyawan; ?></td>
                                                 <td><?php echo $key->jabatan; ?></td>
                                                 <td><img src="<?php echo base_url().'/upload/karyawan/'. $key->foto ?>" width="100"></td>

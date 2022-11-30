@@ -38,7 +38,7 @@
                             role="grid" aria-describedby="dataTable_info" style="width: 100%;">
                                     <thead>
                                         <tr><th rowspan="0" colspan="1">No</th>
-                                        <th rowspan="0" colspan="1">ID</th>
+                                        <!-- <th rowspan="0" colspan="1">ID</th> -->
                                             <th rowspan="1" colspan="1">Nama Layanan</th>
                                             <th rowspan="1" colspan="1">Jenis Layanan</th>
                                             <th rowspan="1" colspan="1">Action</th></tr>
@@ -49,7 +49,7 @@
                                             <?php foreach ($layanans as $key): ?>
                                               <?php $no++?>
                                                 <td><?php echo $no; ?></td>
-                                                <td><?php echo $key->id_layanan; ?></td>
+                                                <!-- <td><?php echo $key->id_layanan; ?></td> -->
                                                 <td><?php echo $key->Nama_layanan; ?></td>
                                                 <td><?php echo $key->JenisLayanan; ?></td>
                                                 <td>

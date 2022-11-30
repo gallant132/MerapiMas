@@ -38,7 +38,8 @@
                             role="grid" aria-describedby="dataTable_info" style="width: 100%;">
                                     <thead>
                                         <tr><th rowspan="0" colspan="1">No</th>
-                                        <th rowspan="0" colspan="1">ID</th>
+                                        <!-- <th rowspan="0" colspan="1">ID</th> -->
+                                        <th rowspan="1" colspan="1">Nama Perusahaan</th>
                                             <th rowspan="1" colspan="1">Misi</th>
                                             <th rowspan="1" colspan="1">Action</th></tr>
                                     </thead>
@@ -48,7 +49,8 @@
                                             <?php foreach ($misi as $key): ?>
                                                 <?php $no++?>
                                                 <td><?php echo $no; ?></td>
-                                                <td><?php echo $key->id_misi; ?></td>
+                                                <!-- <td><?php echo $key->id_misi; ?></td> -->
+                                                <td><?php echo $key->nama_perusahaan; ?></td>
                                                 <td><?php echo $key->misi; ?></td>
                                       
                                                 <td>

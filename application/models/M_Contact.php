@@ -10,8 +10,13 @@ class M_Contact extends CI_Model {
     }
 
     public function get_contact(){
-        $query = $this->db->get('contact');
-        return $query->result();
+        $this->db->select("*");
+        $this->db->from('contact');
+        $this->db->join('tentang', 'tentang.id_tentang = contact.id_tentang');
+        $query = $this->db->get();
+        // return $query->result();
+        // $query = $this->db->get('contact');
+            return $query->result();
     }
 
     public function input_data($data, $contact)

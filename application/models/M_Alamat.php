@@ -15,8 +15,10 @@ class M_Alamat extends CI_Model {
         $this->db->from('alamat');
         $this->db->join('tentang', 'tentang.id_tentang = alamat.id_tentang');
         $query = $this->db->get();
-        return $query->result();
         // return $query->result();
+        // return $query->result();
+        // $query = $this->db->get('alamat');
+            return $query->result();
     }
 
     public function input_data($data, $alamat)

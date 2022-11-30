@@ -38,7 +38,7 @@
                             role="grid" aria-describedby="dataTable_info" style="width: 100%;">
                                     <thead>
                                         <tr><th rowspan="0" colspan="1">No</th>
-                                        <th rowspan="0" colspan="1">ID</th>
+                                        <!-- <th rowspan="0" colspan="1">ID</th> -->
                                         <th rowspan="1" colspan="2">Nama Perusahaan</th>
                                             <th rowspan="1" colspan="4">Tentang Perusahaan</th>
                                             <th rowspan="1" colspan="8">Alamat</th>
@@ -47,63 +47,60 @@
                                             <th rowspan="1" colspan="4">Misi</th>
                                             <th rowspan="1" colspan="4">Legalitas</th>
                                             <th rowspan="1" colspan="4">Core of Value</th>
-                                            <th rowspan="1" colspan="1">Action</th></tr>
+                                            <th rowspan="1" colspan="4">Action</th></tr>
                                     </thead>
                                     <tbody>
                                         <tr role="row" class="odd">
-                                          <?php $no = 0 ?>;
-                                            <?php foreach ($tentang as $key): ?>
+                                          <?php $no = 0 ?>
+                                            <?php foreach ($perusahaan as $key): ?>
                                               <?php $no++?>
                                                 <td colspan="1"><?php echo $no; ?></td>
-                                                <td colspan="1"><?php echo $key->id_tentang; ?></td>
-                                                <td colspan="2"><?php echo $key->nama_perusahaan; ?></td>
+                                                <!-- <td colspan="1"><?php echo $key->id_tentang; ?></td> -->
+                                                <td colspan="1"><?php echo $key->nama_perusahaan; ?></td>
                                                 <td colspan="4"><?php echo $key->tentangperusahaan; ?></td>
-                                                <td><?php echo $key->alamat; ?></td>
-                                                <!-- <td><?php echo $key->contact; ?></td>
-                                                <td><?php echo $key->visi; ?></td>
-                                                <td><?php echo $key->misi; ?></td>
-                                                <td><?php echo $key->legalitas; ?></td>
-                                                <td><?php echo $key->nama; ?></td> -->
-
-                                                <!-- <td  rowspan="1" colspan="8"><?php foreach ($tentang as $key):?>
-                                                      <?php  echo $key->alamat; ?>
-                                                      <?php endforeach; ?> 
-                                                </td> -->
-
-                                                <!-- <td><?php foreach ($tentang as $cnt):?>
-                                                      <td><?php  echo $cnt->contact; ?> </td>
+                          
+                                                <td  rowspan="1" colspan="8">
+                                                      <?php foreach ($key->alamat as $alm):?>
+                                                        <p><?php  echo $alm->alamat; ?></p>
                                                       <?php endforeach; ?> 
                                                 </td>
-
-                                                <td><?php foreach ($tentang as $vs):?>
-                                                      <td><?php  echo $vs->visi; ?> </td>
-                                                      <?php endforeach; ?> 
-                                                </td>
-
-                                                <td><?php foreach ($tentang as $ms):?>
-                                                      <td><?php echo $ms->misi; ?> </td>
-                                                      <?php endforeach; ?> 
-                                                </td>
-
-                                                <td><?php foreach ($tentang as $lgl):?>
-                                                      <td><?php echo $lgl->legalitas; ?> </td>
-                                                      <?php endforeach; ?> 
-                                                </td>
-
-                                                <td><?php foreach ($tentang as $c):?>
-                                                      <td><?php echo $c->nama; ?> </td>
-                                                      <?php endforeach; ?> 
-                                                </td>  -->
                                                 
-                                                <!-- <td><?php echo $key->no_wa; ?></td>
-                                                <td><?php echo $key->alamat_pendaftar; ?></td>
-                                                <td><?php echo $key->asal_sekolah; ?></td>
-                                                <td><?php echo $key->nama_kelas; ?></td> 
-                                                <td><?php echo $key->pembayaran; ?></td> -->
+                                                <td  rowspan="1" colspan="4">
+                                                      <?php foreach ($key->contact as $ct):?>
+                                                        <p><?php  echo $ct->contact; ?></p>
+                                                      <?php endforeach; ?> 
+                                                </td>
+                                                
+                                                
+                                                <td  rowspan="1" colspan="4">
+                                                      <?php foreach ($key->visi as $vs):?>
+                                                       
+                                                        <p><?php  echo $vs->visi; ?></p>
+                                                      <?php endforeach; ?> 
+                                                </td>
+                                                
+                                                <td  rowspan="1" colspan="4">
+                                                      <?php foreach ($key->misi as $ms):?>
+                                                        <p><?php  echo $ms->misi; ?></p>
+                                                      <?php endforeach; ?> 
+                                                </td>
+                                                
+                                                <td  rowspan="1" colspan="4">
+                                                      <?php foreach ($key->legalitas as $lg):?>
+                                                        <p><?php  echo $lg->legalitas; ?></p>
+                                                      <?php endforeach; ?> 
+                                                </td>
+                                                
+                                                <td  rowspan="1" colspan="8">
+                                                      <?php foreach ($key->cov as $cv):?>
+                                                        <p><?php  echo $cv->nama; ?></p>
+                                                      <?php endforeach; ?> 
+                                                </td>
+                                                
+                                                
                                                 <td>
-                                                    <button class="btn btn-primary text-white mb-2"> <?php echo anchor('daftar/edit_pendaftar/'.$key->id_tentang,'<font color=white > Ubah </font>'); ?> </button>
-                                                    <button class="btn btn-success mb-2"> <?php echo anchor('daftar/konfirmasi_pendaftar/'.$key->id_tentang,'<font color=white > Konfirmasi </font>'); ?> </button> 
-                                                    <button class="btn btn-danger text-white mb-2"> <?php echo anchor('daftar/hapus_pendaftar/'.$key->id_tentang,'<font color=white > Hapus </font>'); ?> </button>
+                                                    <button class="btn btn-primary text-white mb-2"> <?php echo anchor('admin/tentang/edit_tentang/'.$key->id_tentang,'<font color=white > Ubah </font>'); ?> </button>
+                                                    <button class="btn btn-danger text-white mb-2"> <?php echo anchor('admin/tentang/hapus_tentang/'.$key->id_tentang,'<font color=white > Hapus </font>'); ?> </button>
                                                 </td>
     
                                         </tr>

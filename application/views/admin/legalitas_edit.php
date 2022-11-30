@@ -25,6 +25,17 @@
 						</div>
 
 						<div class="form-row mb-4">
+                                <br>
+                                <small>Nama Perusahaan</small>
+                                <select name="id_tentang" id="id_tentang" class="form-control" required>
+                                <?php foreach ($tentang as $row) :?>
+                                        <option value="<?= $row->id_tentang;?>"><?=  $row->nama_perusahaan;?></option>
+                                    <?php endforeach;?>
+                                </select>
+                                
+                            </div>
+
+						<div class="form-row mb-4">
 							<br>
 							<small>Legalitas</small>
 							<input type="text" placeholder="Inputkan Nama Lengkap Anda" class="form-control

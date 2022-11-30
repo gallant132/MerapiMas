@@ -10,8 +10,13 @@ class M_Legalitas extends CI_Model {
     }
 
     public function get_legalitas(){
-        $query = $this->db->get('legalitas');
-        return $query->result();
+        $this->db->select("*");
+        $this->db->from('legalitas');
+        $this->db->join('tentang', 'tentang.id_tentang = legalitas.id_tentang');
+        $query = $this->db->get();
+        // return $query->result();
+        // $query = $this->db->get('legalitas');
+            return $query->result();
     }
 
     public function input_data($data, $legalitas)

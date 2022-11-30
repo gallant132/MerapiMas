@@ -27,6 +27,17 @@
 
 						<div class="form-row mb-4">
 							<br>
+							<small>Nama Perusahaan</small>
+							<select name="id_tentang" id="id_tentang" class="form-control" required>
+								<?php foreach($tentang as $jb) : ?>
+									<option value="<?= $jb->id_tentang ?>" <?= $jb->id_tentang === $key->id_tentang ? 'selected' : '' ?>><?= $jb->nama_perusahaan ?></option>
+								<?php endforeach; ?>
+							</select>
+							
+						</div>
+
+						<div class="form-row mb-4">
+							<br>
 							<small>Contact</small>
 							<input type="text" placeholder="Inputkan Nama Lengkap Anda" class="form-control
 							form-control-line form-user-input" name="contact" id="contact" required value="<?php echo $key->contact ?>">
