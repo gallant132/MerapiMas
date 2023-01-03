@@ -1,8 +1,8 @@
 <div class="main-sidebar sidebar-style-2">
         <aside id="sidebar-wrapper">
-          <div class="sidebar-brand">
+          <!-- <div class="sidebar-brand">
             <a href="index.html">PT. Merapi Mas</a>
-          </div>
+          </div> -->
           <div class="sidebar-brand sidebar-brand-sm">
             <a href="index.html">St</a>
           </div>
@@ -106,6 +106,10 @@
                 <li><a href="<?= base_url("admin/namakaryawan") ?>">Nama Karyawan</a></li> 
                 <li><a href="<?= base_url("admin/jabatan") ?>">Jabatan</a></li> 
               </ul>
+            </li>
+
+            <li class="">
+              <a href="<?= base_url("admin/galeri") ?>" class="nav-link"><i class="fas fa-th-large"></i> <span>Galeri</span></a>
             </li>
 
             <!-- <li class="menu-header">Admin</li> -->

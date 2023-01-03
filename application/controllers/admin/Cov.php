@@ -86,6 +86,7 @@ class Cov extends CI_Controller {
 				'detail' => $detail,
 				'icon' => $icon,
 			);
+			
 			$where = array(
                 'id_cov' => $id_cov
             );

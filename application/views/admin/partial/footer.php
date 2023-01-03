@@ -1,5 +1,5 @@
 <footer class="main-footer">
-        <div class="footer-left">
+        <div class="footer-left" >
           Copyright &copy; 2018 <div class="bullet"></div> Design By <a href="https://nauval.in/">PT. Merapi Mas Nusantara</a>
         </div>
         <div class="footer-right">

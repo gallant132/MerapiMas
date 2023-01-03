@@ -1,0 +1,61 @@
+<?php
+defined('BASEPATH') OR exit('No direct script access allowed');
+
+class M_Galeri extends CI_Model {
+    // model digunakan untuk mengatur segala yang berhubungan dengan database
+    function __construct()
+    {
+        parent::__construct();
+        $this->load->database();
+    }
+
+    function upload_data($data)
+	{
+		$this->db->insert('galeri',$data);
+	}
+
+    public function get_galeri(){
+        // $query = $this->db->get('alamat');
+        $this->db->select("*");
+        $this->db->from('galeri');
+        $this->db->join('pekerjaan', 'pekerjaan.id_pekerjaan = galeri.id_pekerjaan');
+        $query = $this->db->get();
+        // return $query->result();
+        // return $query->result();
+        // $query = $this->db->get('alamat');
+            return $query->result();
+    }
+
+    // public function get_alamat(){
+    //     // $query = $this->db->get('alamat');
+    //     $this->db->select("*");
+    //     $this->db->from('alamat');
+    //     $this->db->join('tentang', 'tentang.id_tentang = alamat.id_tentang');
+    //     $query = $this->db->get();
+    //     // return $query->result();
+    //     // return $query->result();
+    //     // $query = $this->db->get('alamat');
+    //         return $query->result();
+    // }
+
+    // public function input_data($data, $alamat)
+    // {
+    //     $this->db->insert($alamat, $data);
+    // }
+
+    // public function edit_data($where,$alamat){
+    //     return $this->db->get_where($alamat,$where);
+    // }
+
+    // public function hapus_alamat($where,$alamat){
+    //     $this->db->where($where);
+    //     $this->db->delete($alamat);
+    // }
+    
+    // public function update_data($where,$data,$alamat){
+    //     $this->db->where($where);
+    //     $this->db->update($alamat,$data);
+    // }
+
+}
+?>

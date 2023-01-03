@@ -53,7 +53,7 @@
                                                 <td><?php echo $key->nama_perusahaan; ?></td>
                                                 <td><?php echo $key->nama; ?></td>
                                                 <td><?php echo $key->detail; ?></td>
-                                                <td><img src="<?php echo base_url().'/upload/icon_cov/'. $key->icon ?>" width="100"></td>
+                                                <td><img src="<?php echo base_url().'/upload/icon_cov/'. $key->icon ?>" width="50"></td>
                                                 <td>
                                                     <button class="btn btn-primary text-white mb-2"> <?php echo anchor('admin/cov/edit_cov/'.$key->id_cov,'<font color=white > Ubah </font>'); ?> </button>
                                                     <!-- <button class="btn btn-success mb-2"> <?php echo anchor('daftar/konfirmasi_pendaftar/'.$key->id_pendaftar,'<font color=white > Konfirmasi </font>'); ?> </button>  -->

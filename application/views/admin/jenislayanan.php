@@ -40,6 +40,7 @@
                                         <tr><th rowspan="0" colspan="1">No</th>
                                         <!-- <th rowspan="0" colspan="1">ID</th> -->
                                             <th rowspan="1" colspan="1">Jenis Layanan</th>
+                                            <th rowspan="1" colspan="1">Icon</th>
                                             <th rowspan="1" colspan="1">Action</th></tr>
                                     </thead>
                                     <tbody>
@@ -50,6 +51,7 @@
                                                 <td><?php echo $no; ?></td>
                                                 <!-- <td><?php echo $key->id_jenislayanan; ?></td> -->
                                                 <td><?php echo $key->JenisLayanan; ?></td>
+                                                <td><img src="<?php echo base_url().'upload/icon_jenis_layanan/'. $key->icon ?>" width="50"></td>
                                                 <td>
                                                 <button class="btn btn-primary text-white mb-2"> <?php echo anchor('admin/jenislayanan/edit_jenislayanan/'.$key->id_jenislayanan,'<font color=white > Ubah </font>'); ?> </button> 
                                                 <button class="btn btn-danger text-white mb-2"> <?php echo anchor('admin/jenislayanan/hapus_jenis_layanan/'.$key->id_jenislayanan,'<font color=white > Hapus </font>'); ?> </button>

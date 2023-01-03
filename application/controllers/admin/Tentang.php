@@ -122,4 +122,6 @@ class Tentang extends CI_Controller {
         redirect('admin/Tentang');
     } 
 
+    
+
 }

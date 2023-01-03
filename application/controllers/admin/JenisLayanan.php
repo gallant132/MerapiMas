@@ -31,21 +31,51 @@ class JenisLayanan extends CI_Controller {
     }
 
 	public function update(){
-        $id_jenislayanan = $this->input->post('id_jenislayanan');
-        $JenisLayanan = $this->input->post('JenisLayanan');
-        
+				$id_jenislayanan				= $this->input->post('id_jenislayanan');
+                $config['upload_path']          = FCPATH.'upload/icon_jenis_layanan/';
+				$config['allowed_types']        = 'gif|jpg|jpeg|png';
+				$config['overwrite']            = true;
+				$config['max_size']             = 10024; // 1MB
+				$config['max_width']            = 10800;
+				$config['max_height']           = 10800;
 
-        $data = array(
-            'id_jenislayanan' => $id_jenislayanan,
-            'JenisLayanan' => $JenisLayanan,
-        );
+				$this->load->library('upload', $config);
 
-            $where = array(
-                'id_jenislayanan' => $id_jenislayanan
-            );
+				if (!$this->upload->do_upload('userfile')) {
 
-            $this->M_JenisLayanan->update_data($where,$data,'jenis_layanan');
-            redirect('admin/JenisLayanan');
+					$JenisLayanan = $this->input->post('JenisLayanan');
+                    $data = array(
+                        'JenisLayanan' => $JenisLayanan,
+                        
+                    );
+
+                    $where = array(
+                        'id_jenislayanan' => $id_jenislayanan
+                    );
+
+                    $this->M_JenisLayanan->update_data($where,$data,'jenis_layanan');
+                    redirect('admin/JenisLayanan');
+				}
+
+                else
+                {
+					$icon = $this->upload->data();
+					$icon = $icon['file_name'];
+					$JenisLayanan = $this->input->post('JenisLayanan');
+					
+
+					$data = array(
+						'JenisLayanan' => $JenisLayanan,
+						'icon' => $icon,
+					);
+
+					$where = array(
+                        'id_jenislayanan' => $id_jenislayanan
+                    );
+
+                    $this->M_JenisLayanan->update_data($where,$data,'jenis_layanan');
+                    redirect('admin/JenisLayanan');
+                }
         }
 
 		public function tambah_jenis_layanan()
@@ -56,12 +86,38 @@ class JenisLayanan extends CI_Controller {
 
 	 public function insert()
 	{
-		$JenisLayanan = $this->input->post('JenisLayanan');
-        $data = array(
-            'JenisLayanan' => $JenisLayanan,
-        );
-        $this->M_JenisLayanan->input_data($data, 'jenis_layanan');
-        redirect('admin/JenisLayanan');
+                $config['upload_path']          = FCPATH.'upload/icon_jenis_layanan/';
+				$config['allowed_types']        = 'gif|jpg|jpeg|png';
+				$config['overwrite']            = true;
+				$config['max_size']             = 10024; // 1MB
+				$config['max_width']            = 10800;
+				$config['max_height']           = 10800;
+
+				$this->load->library('upload', $config);
+
+				if (!$this->upload->do_upload('userfile')) {
+					// $data['error'] = $this->upload->display_errors();
+					// check error
+					$error = array('error' => $this->upload->display_errors());
+					print_r($error);
+				}
+
+                else
+                {
+					$icon = $this->upload->data();
+					$icon = $icon['file_name'];
+					$JenisLayanan = $this->input->post('JenisLayanan');
+					
+
+					$data = array(
+						'JenisLayanan' => $JenisLayanan,
+						'icon' => $icon,
+					);
+
+                    $this->M_JenisLayanan->input_data($data, 'jenis_layanan');
+                    redirect('admin/JenisLayanan');
+                }
+       
 	}
 
 	Public function hapus_jenis_layanan($id_jenislayanan){

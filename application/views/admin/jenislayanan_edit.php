@@ -13,7 +13,8 @@
 				<div class="col-lg-6">
 					<!-- Default form register -->
                     <?php foreach($jenis_layanan as $key){ ?>
-					<form class="text-center border border-light p-5" method="post" action="<?php echo base_url() . 'admin/JenisLayanan/update'; ?>">
+					<!-- <form class="text-center border border-light p-5" method="post" action="<?php echo base_url() . 'admin/JenisLayanan/update'; ?>"> -->
+					<?php echo form_open_multipart('admin/JenisLayanan/update'); ?>
 						<p class="h4 mb-4">Edit Jenis Layanan</p>
                         <div class="form-row mb-4">
 							<br>
@@ -31,6 +32,16 @@
 							form-control-line form-user-input" name="JenisLayanan" id="JenisLayanan" required value="<?php echo $key->JenisLayanan ?>">
 							<br><br>
 							
+						</div>
+
+						<div class="form-group mb-4">
+						<br>
+						<small class="align left">Icon</small>
+						<input type="file" class="form-control" name="userfile"  size="20">
+                        </div>
+
+						<div>
+						<img src="<?php echo base_url().'upload/icon_jenis_layanan/'. $key->icon ?>" width="100">
 						</div>
 
                         

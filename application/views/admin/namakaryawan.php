@@ -45,10 +45,10 @@
                                             <th rowspan="1" colspan="1">Action</th></tr>
                                     </thead>
                                     <tbody>
-                                        <?php $no= 0; ?>
+                                        <?php $no= 1; ?>
                                             <?php foreach ($karyawan as $key): ?>
-                                              <?php $no++?>
-                                                <td><?php echo $no; ?></td>
+                                              
+                                                <td><?php echo $no++; ?></td>
                                                 <!-- <td><?php echo $key->id_karyawan; ?></td> -->
                                                 <td><?php echo $key->nama_karyawan; ?></td>
                                                 <td><?php echo $key->jabatan; ?></td>
